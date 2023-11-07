@@ -1,0 +1,446 @@
+{
+  "addons": [
+    {
+      "id": "evergreen",
+      "description": "Adds Treesitter syntax highlighting support.",
+      "version": "0.2",
+      "path": "plugins/evergreen",
+      "dependencies": {
+        "tree-sitter-c": { "optional": true },
+        "tree-sitter-cpp": { "optional": true },
+        "tree-sitter-d": { "optional": true },
+        "tree-sitter-diff": { "optional": true },
+        "tree-sitter-go": { "optional": true },
+        "tree-sitter-go-mod": { "optional": true },
+        "tree-sitter-javascript": { "optional": true },
+        "tree-sitter-julia": { "optional": true },
+        "tree-sitter-lua": { "optional": true },
+        "tree-sitter-rust": { "optional": true },
+        "tree-sitter-zig": { "optional": true }
+      },
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/ltreesitter/ltreesitter.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/ltreesitter/ltreesitter.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/ltreesitter/ltreesitter.aarch64-darwin.so",
+          "arch": "aarch64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/ltreesitter/ltreesitter.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/ltreesitter/ltreesitter.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-c",
+      "description": "Treesitter parser for C",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-c",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-c.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-c.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-c.aarch64-darwin.so",
+          "arch": "aarch64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-c.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-c.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-cpp",
+      "description": "Treesitter parser for C++",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-cpp",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-cpp.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-cpp.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-cpp.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-cpp.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-cpp.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-d",
+      "description": "Treesitter parser for D",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-d",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-d.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-d.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-d.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-d.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-d.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-diff",
+      "description": "Treesitter parser for diff",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-diff",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-diff.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-diff.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-diff.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-diff.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-diff.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-go",
+      "description": "Treesitter parser for Go",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-go",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-go-mod",
+      "description": "Treesitter parser for Go mods",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-go-mod",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go-mod.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go-mod.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go-mod.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go-mod.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go-mod.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-javascript",
+      "description": "Treesitter parser for JavaScript",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-javascript",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-javascript.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-javascript.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-javascript.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-javascript.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-javascript.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-julia",
+      "description": "Treesitter parser for Julia",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-julia",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-julia.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-julia.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-julia.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-julia.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-julia.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-lua",
+      "description": "Treesitter parser for Lua",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-lua",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-lua.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-lua.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-lua.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-lua.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-lua.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-rust",
+      "description": "Treesitter parser for Rust",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-rust",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-rust.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-rust.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-rust.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-rust.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-rust.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    },
+
+
+    {
+      "name": "tree-sitter-zig",
+      "description": "Treesitter parser for Zig",
+      "version": "0.1",
+      "type": "library",
+      "id": "tree-sitter-zig",
+      "files": [
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-zig.x86_64-linux.so",
+          "arch": "x86_64-linux",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-zig.x86_64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-zig.aarch64-darwin.so",
+          "arch": "x86_64-darwin",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-zig.x86_64-windows.dll",
+          "arch": "x86_64-windows",
+          "checksum": "SKIP"
+        },
+        {
+          "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-zig.x86-windows.dll",
+          "arch": "x86-windows",
+          "checksum": "SKIP"
+        }
+      ]
+    }
+  ]
+}

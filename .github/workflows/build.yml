@@ -1,0 +1,179 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - ltreesitter
+      - parsers
+
+permissions: write-all
+
+jobs:
+  release:
+    name: Update Releases
+    runs-on: ubuntu-20.04
+    outputs:
+      meson_params: ${{ steps.tag.outputs.meson_params }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with: { fetch-depth: 0 }
+      - name: Tag Name
+        id: tag
+        run: |
+          echo "${{ github.event.ref }}"
+          echo "${{ github.ref_name }}"
+          if [[ "${{ github.ref_name }}" == "ltreesitter" ]]; then
+            echo "meson_params=-Dparsers=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "meson_params=-Dltreesitter=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Update ltreesitter
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+        if: ${{ github.ref_name == 'ltreesitter' }}
+        run: |
+          gh release delete -y ltreesitter || true;
+          gh release create -t "ltreesitter Binaries" ltreesitter
+      - name: Update parsers
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+        if: ${{ github.ref_name == 'parsers' }}
+        run: |
+          gh release delete -y parsers || true;
+          gh release create -t "Parser Binaries" parsers
+
+  build_linux:
+    name: Linux
+    needs: release
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with: { fetch-depth: 0 }
+      - name: Python Setup
+        uses: actions/setup-python@v4
+        with: { python-version: 3.9 }
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt -y install ninja-build
+          pip3 install meson
+      - name: Build
+        env:
+          MESON_PARAMS: ${{ needs.release.outputs.meson_params }}
+        run: |
+          echo $MESON_PARAMS
+          meson setup --buildtype=release --wrap-mode=forcefallback \
+            $MESON_PARAMS -Dprefer_static=true build
+          meson compile -C build
+          DESTDIR=$(pwd)/install meson install -C build
+      - name: Upload ltreesitter
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+        if: ${{ github.ref_name == 'ltreesitter' }}
+        run: |
+          gh release upload ltreesitter install/plugins/evergreen/ltree*.so
+      - name: Upload parsers
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+        if: ${{ github.ref_name == 'parsers' }}
+        run: |
+          gh release upload parsers install/libraries/tree-sitter-*/libtree*.so
+
+  build_windows:
+    name: Windows
+    needs: release
+    runs-on: windows-2019
+    strategy:
+      matrix:
+        msystem: [MINGW32, MINGW64]
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v3
+        with: { fetch-depth: 0 }
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: ${{ matrix.msystem }}
+          update: true
+          install: >-
+            base-devel
+            git
+            zip
+      - name: Set Environment Variables
+        run: |
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          if [[ "${MSYSTEM}" == "MINGW64" ]]; then
+            echo "PLATFORM=x86_64-windows" >> "$GITHUB_ENV"
+          else
+            echo "PLATFORM=x86-windows" >> "$GITHUB_ENV"
+          fi
+      - name: Install Dependencies
+        run: |
+          pacman --noconfirm -S ${MINGW_PACKAGE_PREFIX}-{ca-certificates,github-cli,gcc,meson,ninja,pkg-config}
+      - name: Build
+        env:
+          MESON_PARAMS: ${{ needs.release.outputs.meson_params }}
+        run: |
+          echo $MESON_PARAMS
+          meson setup --buildtype=release --wrap-mode=forcefallback \
+            $MESON_PARAMS -Darch_tuple=${PLATFORM} \
+            -Dprefer_static=true build
+          meson compile -C build
+          DESTDIR=$(pwd)/install meson install -C build
+      - name: Upload ltreesitter
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+        if: ${{ github.ref_name == 'ltreesitter' }}
+        run: |
+          gh release upload ltreesitter install/plugins/evergreen/ltree*.dll
+      - name: Upload parsers
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+        if: ${{ github.ref_name == 'parsers' }}
+        run: |
+          gh release upload parsers install/libraries/tree-sitter-*/libtree*.dll
+
+  build_macos:
+    name: macOS
+    needs: release
+    runs-on: macos-11
+    strategy:
+      matrix:
+        arch: [x86_64, aarch64]
+    env:
+      CC: clang
+      CXX: clang++
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with: { fetch-depth: 0 }
+      - name: Python Setup
+        uses: actions/setup-python@v4
+        with: { python-version: 3.9 }
+      - name: Install Dependencies
+        id: install
+        run: |
+          brew install ninja
+          pip3 install meson
+          if [[ "${{ matrix.arch }}" == "aarch64" ]]; then
+            echo "cross_file=--cross-file=crossfiles/macos_arm64.conf" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build
+        env:
+          CROSS_FILE: ${{ steps.install.outputs.cross_file }}
+          MESON_PARAMS: ${{ needs.release.outputs.meson_params }}
+        run: |
+          echo $CROSS_FILE
+          echo $MESON_PARAMS
+          meson setup --buildtype=release --wrap-mode=forcefallback \
+            $CROSS_FILE $MESON_PARAMS -Dprefer_static=true \
+            build
+          meson compile -C build
+          DESTDIR=$(pwd)/install meson install -C build
+      - name: Upload ltreesitter
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+        if: ${{ github.ref_name == 'ltreesitter' }}
+        run: |
+          gh release upload ltreesitter install/plugins/evergreen/ltree*.so
+      - name: Upload parsers
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+        if: ${{ github.ref_name == 'parsers' }}
+        run: |
+          gh release upload parsers install/libraries/tree-sitter-*/libtree*.so

@@ -1,0 +1,7 @@
+option('arch_tuple', type : 'string', value : '', description: 'Specify a custom architecture tuple')
+option('data_dir', type : 'string', value : '/', description: 'Data directory of installation')
+option('use_system_lua', type : 'boolean', value : true, description: 'Prefer System Lua over the meson wrap')
+option('jit', type : 'boolean', value : true, description: 'Use luajit')
+option('plugin_api', type : 'boolean', value : false, description: 'Use plugin api of code editor instead of linking to lua')
+option('ltreesitter', type : 'boolean', value : true, description: 'Build ltreesitter')
+option('parsers', type : 'boolean', value : true, description: 'Build tree-sitter parsers')

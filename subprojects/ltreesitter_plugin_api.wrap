@@ -1,0 +1,6 @@
+[wrap-git]
+url = https://github.com/takase1121/ltreesitter
+revision = lite-xl-plugin-api
+depth = 1
+patch_directory = ltreesitter_plugin_api
+clone-recursive = true
