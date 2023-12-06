@@ -103,7 +103,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-cpp.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -139,7 +139,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-d.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -175,7 +175,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-diff.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -211,7 +211,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -247,7 +247,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-go-mod.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -283,7 +283,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-javascript.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -319,7 +319,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-julia.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -355,7 +355,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-lua.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -391,7 +391,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-rust.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
@@ -427,7 +427,7 @@
         },
         {
           "url": "https://github.com/pragtical/evergreen/releases/download/parsers/libtree-sitter-zig.aarch64-darwin.so",
-          "arch": "x86_64-darwin",
+          "arch": "aarch64-darwin",
           "checksum": "SKIP"
         },
         {
