@@ -3,7 +3,7 @@
     {
       "id": "evergreen",
       "description": "Adds Treesitter syntax highlighting support.",
-      "version": "0.2",
+      "version": "0.2.1",
       "path": "plugins/evergreen",
       "dependencies": {
         "tree-sitter-c": { "optional": true },
